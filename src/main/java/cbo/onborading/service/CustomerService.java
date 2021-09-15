@@ -20,7 +20,7 @@ public class CustomerService {
     public ResponseMessage createCustomer(Customer customer){
         //authentication
        CoreCredentials coreUser=securityService.getOficerCore(customer.getCashierCode(),customer.getCashierPassword());
-        if(officer==null) return new ResponseMessage().error("Officer Login problem");
+        if(coreUser==null) return new ResponseMessage().error("Officer Login problem");
 //        //Create soap Body
        String soapBody= CustomerBody.body(coreUser,customer);
        System.out.println(soapBody);

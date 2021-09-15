@@ -25,7 +25,7 @@ public class BranchService {
             return new ResponseMessage().error("Error Creating Branch Please check Company Code, Name");
         }
     }
-
+//5432
     public Branch searchBranch(String CompanyCode){
 
         return branchRepository.getBranchCompanyCode(CompanyCode);
