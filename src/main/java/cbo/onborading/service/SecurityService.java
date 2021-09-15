@@ -1,6 +1,7 @@
 package cbo.onborading.service;
 
 
+import cbo.onborading.internal.model.ChangePassword;
 import cbo.onborading.internal.model.InternalUser;
 import cbo.onborading.internal.model.LoginCredentials;
 import cbo.onborading.internal.model.UCCC;
@@ -55,6 +56,35 @@ public class SecurityService {
     public CoreCredentials getOficerCore(String cashierCode, String cashierPassword) {
 
         return null;
+    }
+
+    public ResponseMessage changePassword(ChangePassword chp) {
+       if(!chp.getNewPassWord().equals(chp.getConfirmPassword())){
+           return new ResponseMessage().error("Password is not Confirmed");
+       }
+       //loing chack
+        InternalUser user=login(chp.getUsername(),chp.getOldPassWord());
+        if(user==null)
+            return new ResponseMessage().error("Invalid Credential Supplied");
+        String encPassword=Collections.encP(chp.getNewPassWord());
+        user.setPassword(encPassword);
+        user.setDefaultPasswordChanged(true);
+        internalUserRepository.save(user);
+
+        String subject="Default Password changed--please do not reply to this email";
+        String message="Recently you have changed your default password,";
+
+        try {
+            NotificationService.emailNotification(subject,message,user.getEmail());
+        } catch (MessagingException e) {
+            return new ResponseMessage().success("Default Password Changed"+e.getLocalizedMessage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //send Email
+        return new ResponseMessage().success("Your Default Password has been changed Succefully");
+
+
     }
     // public String generatePassword() throws NoSuchAlgorithmException {
 //        String password= Collections.randomString(7);

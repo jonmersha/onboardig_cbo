@@ -2,6 +2,7 @@ package cbo.onborading.contoller.v1;
 
 
 import cbo.onborading.internal.model.Branch;
+import cbo.onborading.internal.model.ChangePassword;
 import cbo.onborading.internal.model.LoginCredentials;
 import cbo.onborading.internal.model.InternalUser;
 import cbo.onborading.service.BranchService;
@@ -24,10 +25,9 @@ public class ManagementController {
     @Autowired
     SecurityService securityService;
 
-
     @GetMapping("/")
     public String getSystemInformation(){
-        return "the server is started running at port 9998";
+        return "<h1>Coopay Onbording</h1>";
     }
     @PostMapping("/v1/add/branch")
     public ResponseMessage newBranch(@RequestBody Branch branch){
@@ -46,9 +46,13 @@ public class ManagementController {
     public LoginCredentials logIn(@RequestBody LoginCredentials loginCredentials){
          InternalUser user= securityService.login(loginCredentials.getUserName(),loginCredentials.getPassword());
         if(user==null){
-            return new LoginCredentials().setLoginStatus("Login not Succefull");
+            return new LoginCredentials().setLoginStatus("Login not Successful");
         }
         return loginCredentials.setLoginStatus("Success");
+    }
+    @PostMapping("/v1/pw/change")
+public ResponseMessage changePassword(@RequestBody ChangePassword chp){
+        return securityService.changePassword(chp);
     }
 
 
