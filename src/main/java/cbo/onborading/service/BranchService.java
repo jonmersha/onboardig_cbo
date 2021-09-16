@@ -4,10 +4,12 @@ package cbo.onborading.service;
 import cbo.onborading.internal.model.Branch;
 import cbo.onborading.jpa.entity.BranchEnt;
 import cbo.onborading.jpa.repository.BranchRepository;
+import cbo.onborading.model.EmployeeBranch;
 import cbo.onborading.utility.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -32,7 +34,22 @@ public class BranchService {
     }
 
     public List<Branch> getAllBranch(){
+        //List<Branch> branches=branchRepository.getAllBranch();
+
         return branchRepository.getAllBranch();
+
+    }
+
+    public List<EmployeeBranch> employeeBranch(){
+        List<Branch> branches=branchRepository.getAllBranch();
+       List<EmployeeBranch> employeeBranch= new ArrayList<>();
+
+        for (Branch br :branches
+                ) {
+            employeeBranch.add(new EmployeeBranch(br.getCompanyCode(),br.getBranchName()));
+
+        }
+         return employeeBranch;
 
     }
 

@@ -3,6 +3,7 @@ package cbo.onborading.contoller.v1;
 import cbo.onborading.internal.model.*;
 import cbo.onborading.jpa.entity.BranchEnt;
 import cbo.onborading.jpa.repository.InternalUserRepository;
+import cbo.onborading.model.EmployeeBranch;
 import cbo.onborading.service.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +26,8 @@ public class GetController {
     }
 
     @GetMapping("/branches")
-    public List<Branch> getAllBranches(){
-        return branchService.getAllBranch();
+    public List<EmployeeBranch> getAllBranches(){
+        return branchService.employeeBranch();
     }
 
     @GetMapping("/officer")
