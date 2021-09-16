@@ -51,7 +51,7 @@ public class ManagementController {
         return loginCredentials.setLoginStatus("Success");
     }
     @PostMapping("/v1/pw/change")
-public ResponseMessage changePassword(@RequestBody ChangePassword chp){
+        public ResponseMessage changePassword(@RequestBody ChangePassword chp){
         return securityService.changePassword(chp);
     }
 

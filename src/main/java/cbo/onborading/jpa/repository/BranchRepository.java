@@ -16,7 +16,10 @@ public interface BranchRepository extends CrudRepository<Branch,Integer> {
     Branch getBranchCompanyCode(String companyCode);
 
 
-    @Query("select u from Branch u")
+    @Query("select u.companyCode,u.branchName from Branch u")
     List<Branch> getAllBranch();
+
+    @Query("select u from Branch u")
+    List<Branch> branches();
 
 }
