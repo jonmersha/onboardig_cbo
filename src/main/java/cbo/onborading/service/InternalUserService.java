@@ -3,7 +3,7 @@ package cbo.onborading.service;
 
 import cbo.onborading.jpa.repository.InternalUserRepository;
 import cbo.onborading.internal.model.InternalUser;
-import cbo.onborading.utility.ResponseMessage;
+import cbo.onborading.response_object.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +32,7 @@ public class InternalUserService {
     }
 
 
-
+    public void updateUser(InternalUser user) {
+        internalUser.save(user);
+    }
 }

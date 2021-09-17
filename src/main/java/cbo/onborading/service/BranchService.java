@@ -2,10 +2,9 @@ package cbo.onborading.service;
 
 
 import cbo.onborading.internal.model.Branch;
-import cbo.onborading.jpa.entity.BranchEnt;
 import cbo.onborading.jpa.repository.BranchRepository;
-import cbo.onborading.model.EmployeeBranch;
-import cbo.onborading.utility.ResponseMessage;
+import cbo.onborading.response_object.EmployeeBranch;
+import cbo.onborading.response_object.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

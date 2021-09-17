@@ -1,11 +1,27 @@
 package cbo.onborading.model;
 
 public class CoreCredentials {
-    private int userID;
-    private String corePassWord;
-    private String coreUserName;
+    private String username;
+    private String password;
     private String companyCode;
+    private String coreUserName;
+    private String corePassWord;
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getCompanyCode() {
         return companyCode;
@@ -15,12 +31,12 @@ public class CoreCredentials {
         this.companyCode = companyCode;
     }
 
-    public int getUserID() {
-        return userID;
+    public String getCoreUserName() {
+        return coreUserName;
     }
 
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setCoreUserName(String coreUserName) {
+        this.coreUserName = coreUserName;
     }
 
     public String getCorePassWord() {
@@ -29,13 +45,5 @@ public class CoreCredentials {
 
     public void setCorePassWord(String corePassWord) {
         this.corePassWord = corePassWord;
-    }
-
-    public String getCoreUserName() {
-        return coreUserName;
-    }
-
-    public void setCoreUserName(String coreUserName) {
-        this.coreUserName = coreUserName;
     }
 }

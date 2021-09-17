@@ -1,4 +1,4 @@
-package cbo.onborading.utility;
+package cbo.onborading.response_object;
 
 public class ResponseMessage {
     private String status;

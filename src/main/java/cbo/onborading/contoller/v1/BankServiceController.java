@@ -1,22 +1,22 @@
 package cbo.onborading.contoller.v1;
 
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BankServiceController {
 
-    //customer Creation
-    //customer Authorization
 
-    //account Creation
-    //Account Authorization
+    //Account Information
+    @PostMapping("/v1/account/detail")
+    public void accountDetails(){}
+    //Customer information
+    @PostMapping("/v1/customer/detail")
+    public void customerDetails(){}
+    //Customer Balance
 
-    //image capture
-    //image upload
-    //image upload authorization
 
-    //actual file upload
 
 
 

@@ -19,7 +19,7 @@ public class NotificationService {
                 }
             });
             Message msg = new MimeMessage(session);
-            msg.setFrom(new InternetAddress("no-replay@lehulupay.com", false));
+            msg.setFrom(new InternetAddress("no-replay@coopay.io", false));
 
             msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destination));
             msg.setSubject(subject);

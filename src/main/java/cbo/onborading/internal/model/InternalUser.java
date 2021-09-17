@@ -28,8 +28,18 @@ public class InternalUser {
     private boolean defaultPasswordChanged;
     private boolean emailVerified;
     private boolean mobileVerified;
+    private String coreUserName;
     private String password;
     private String deviceId;
+
+
+    public String getCoreUserName() {
+        return coreUserName;
+    }
+
+    public void setCoreUserName(String coreUserName) {
+        this.coreUserName = coreUserName;
+    }
 
     public boolean isDefaultPasswordChanged() {
         return defaultPasswordChanged;

@@ -1,4 +1,4 @@
-package cbo.onborading.model;
+package cbo.onborading.response_object;
 
 public class EmployeeBranch {
     private String companyCode;

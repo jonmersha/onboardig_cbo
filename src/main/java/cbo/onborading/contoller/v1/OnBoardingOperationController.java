@@ -3,7 +3,7 @@ package cbo.onborading.contoller.v1;
 
 import cbo.onborading.model.Customer;
 import cbo.onborading.service.CustomerService;
-import cbo.onborading.utility.ResponseMessage;
+import cbo.onborading.response_object.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,8 +26,6 @@ public class OnBoardingOperationController {
     public String authorizeCustomer(@RequestBody Customer customer){
         return "";
     }
-
-
 
     //account Creation
 

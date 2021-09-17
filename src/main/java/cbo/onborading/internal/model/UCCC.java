@@ -16,10 +16,18 @@ public class UCCC {
     private String emailOTPGenTime;
     private int mobileOTPTryCount;
     private int emailOTPTryCount;
-    private String CPW;
-    private String CUN;
-    private String LPW;
+    private String companyCode;
+    private String corePassword;
+    private String coreUserName;
 
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
+    }
 
     public String getId() {
         return id;
@@ -93,27 +101,21 @@ public class UCCC {
         this.emailOTPTryCount = emailOTPTryCount;
     }
 
-    public String getCPW() {
-        return CPW;
+    public String getCorePassword() {
+        return corePassword;
     }
 
-    public void setCPW(String CPW) {
-        this.CPW = CPW;
+    public void setCorePassword(String corePassword) {
+        this.corePassword = corePassword;
     }
 
-    public String getCUN() {
-        return CUN;
+    public String getCoreUserName() {
+        return coreUserName;
     }
 
-    public void setCUN(String CUN) {
-        this.CUN = CUN;
+    public void setCoreUserName(String coreUserName) {
+        this.coreUserName = coreUserName;
     }
 
-    public String getLPW() {
-        return LPW;
-    }
 
-    public void setLPW(String LPW) {
-        this.LPW = LPW;
-    }
 }

@@ -3,21 +3,17 @@ package cbo.onborading.service;
 
 import cbo.onborading.internal.model.ChangePassword;
 import cbo.onborading.internal.model.InternalUser;
-import cbo.onborading.internal.model.LoginCredentials;
-import cbo.onborading.internal.model.UCCC;
 import cbo.onborading.jpa.repository.CCCRepository;
 import cbo.onborading.jpa.repository.InternalUserRepository;
 import cbo.onborading.model.CoreCredentials;
 import cbo.onborading.utility.Collections;
 import cbo.onborading.utility.NotificationService;
-import cbo.onborading.utility.ResponseMessage;
+import cbo.onborading.response_object.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 @Service
 public class SecurityService {
@@ -29,7 +25,6 @@ public class SecurityService {
 
    public InternalUser login(String userName, String password) {
        password=Collections.encP(password);
-
       return   internalUserRepository.officerLogin(userName,password);
     }
     public ResponseMessage sendSaveDefaultPassword(InternalUser iu){
