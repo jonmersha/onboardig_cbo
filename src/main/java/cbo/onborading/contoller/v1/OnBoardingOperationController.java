@@ -1,7 +1,9 @@
 package cbo.onborading.contoller.v1;
 
 
-import cbo.onborading.model.Customer;
+import cbo.onborading.model.operation.Account;
+import cbo.onborading.model.operation.Customer;
+import cbo.onborading.service.AccountService;
 import cbo.onborading.service.CustomerService;
 import cbo.onborading.response_object.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class OnBoardingOperationController {
     @Autowired
     CustomerService customerService;
+
+    @Autowired
+    AccountService accountService;
 
     //customer Creation
     @PostMapping("/v1/create/customer")
@@ -30,8 +35,8 @@ public class OnBoardingOperationController {
     //account Creation
 
     @PostMapping("/v1/create/account")
-    public String createAccount(@RequestBody Customer customer){
-        return "";
+    public ResponseMessage createAccount(@RequestBody Account account){
+        return accountService.createAccount(account);
     }
 
     //Account Authorization
@@ -39,8 +44,6 @@ public class OnBoardingOperationController {
     public String authorizeAccount(@RequestBody Customer customer){
         return "";
     }
-
-
 
     //image capture
     @PostMapping("/v1/create/image")

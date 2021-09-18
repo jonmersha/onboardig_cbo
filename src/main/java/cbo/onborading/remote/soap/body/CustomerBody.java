@@ -1,8 +1,7 @@
 package cbo.onborading.remote.soap.body;
 
-import cbo.onborading.internal.model.InternalUser;
-import cbo.onborading.model.CoreCredentials;
-import cbo.onborading.model.Customer;
+import cbo.onborading.model.internal.CoreCredentials;
+import cbo.onborading.model.operation.Customer;
 
 public class CustomerBody {
     static public String body(CoreCredentials credential, Customer bankCustomer){

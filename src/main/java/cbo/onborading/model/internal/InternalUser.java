@@ -1,4 +1,4 @@
-package cbo.onborading.internal.model;
+package cbo.onborading.model.internal;
 
 
 import javax.persistence.*;

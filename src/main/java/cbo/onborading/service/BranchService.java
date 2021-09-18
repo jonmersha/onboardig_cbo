@@ -1,7 +1,7 @@
 package cbo.onborading.service;
 
 
-import cbo.onborading.internal.model.Branch;
+import cbo.onborading.model.internal.Branch;
 import cbo.onborading.jpa.repository.BranchRepository;
 import cbo.onborading.response_object.EmployeeBranch;
 import cbo.onborading.response_object.ResponseMessage;

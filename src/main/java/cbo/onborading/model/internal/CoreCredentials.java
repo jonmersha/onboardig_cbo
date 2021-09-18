@@ -1,4 +1,4 @@
-package cbo.onborading.model;
+package cbo.onborading.model.internal;
 
 public class CoreCredentials {
     private String username;

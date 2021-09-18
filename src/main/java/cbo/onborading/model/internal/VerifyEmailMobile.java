@@ -1,4 +1,4 @@
-package cbo.onborading.internal.model;
+package cbo.onborading.model.internal;
 
 public class VerifyEmailMobile {
     private String username;

@@ -1,6 +1,6 @@
 package cbo.onborading.jpa.repository;
 
-import cbo.onborading.internal.model.InternalUser;
+import cbo.onborading.model.internal.InternalUser;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

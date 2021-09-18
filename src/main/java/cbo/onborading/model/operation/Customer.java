@@ -1,4 +1,4 @@
-package cbo.onborading.model;
+package cbo.onborading.model.operation;
 
 public class Customer {
     private String cashierCode;

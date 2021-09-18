@@ -1,11 +1,11 @@
 package cbo.onborading.service;
 
 
-import cbo.onborading.internal.model.ChangePassword;
-import cbo.onborading.internal.model.InternalUser;
+import cbo.onborading.model.internal.ChangePassword;
+import cbo.onborading.model.internal.InternalUser;
 import cbo.onborading.jpa.repository.CCCRepository;
 import cbo.onborading.jpa.repository.InternalUserRepository;
-import cbo.onborading.model.CoreCredentials;
+import cbo.onborading.model.internal.CoreCredentials;
 import cbo.onborading.utility.Collections;
 import cbo.onborading.utility.NotificationService;
 import cbo.onborading.response_object.ResponseMessage;

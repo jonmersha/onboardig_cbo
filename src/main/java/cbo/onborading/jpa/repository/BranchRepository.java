@@ -1,7 +1,6 @@
 package cbo.onborading.jpa.repository;
 
-import cbo.onborading.internal.model.Branch;
-import cbo.onborading.jpa.entity.BranchEnt;
+import cbo.onborading.model.internal.Branch;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

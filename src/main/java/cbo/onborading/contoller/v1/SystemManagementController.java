@@ -1,9 +1,10 @@
 package cbo.onborading.contoller.v1;
 
 
-import cbo.onborading.internal.model.*;
+
 import cbo.onborading.jpa.repository.CCCRepository;
-import cbo.onborading.model.CoreCredentials;
+import cbo.onborading.model.internal.CoreCredentials;
+import cbo.onborading.model.internal.*;
 import cbo.onborading.service.BranchService;
 import cbo.onborading.service.InternalUserService;
 import cbo.onborading.service.SecurityService;
