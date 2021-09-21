@@ -1,8 +1,21 @@
 package cbo.onborading.utility;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.MimeHeaders;
+import javax.xml.soap.SOAPException;
+import javax.xml.soap.SOAPMessage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Collections {
+
+    //Path
+    public static final Object ON_BOARDING_URL ="http://10.1.245.189:9081/CUSONBRD/services" ;
+
+
+
 
     public static String randomString(int n){
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz!@#$%&*";
@@ -44,6 +57,12 @@ public class Collections {
         }
 
 return encryptedpassword;
+    }
+    public static SOAPMessage getSoapMessageFromString(String xml) throws SOAPException, IOException {
+        MessageFactory factory = MessageFactory.newInstance();
+        SOAPMessage message = factory.createMessage(new MimeHeaders(),
+                new ByteArrayInputStream(xml.getBytes(Charset.forName("UTF-8"))));
+        return message;
     }
 
 }

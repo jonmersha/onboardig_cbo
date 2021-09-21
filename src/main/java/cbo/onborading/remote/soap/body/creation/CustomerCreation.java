@@ -1,12 +1,13 @@
-package cbo.onborading.remote.soap.body;
+package cbo.onborading.remote.soap.body.creation;
 
+import cbo.onborading.jpa.entity.CustomerData;
 import cbo.onborading.model.internal.CoreCredentials;
 import cbo.onborading.model.operation.Customer;
 
-public class CustomerBody {
-    static public String body(CoreCredentials credential, Customer bankCustomer){
+public class CustomerCreation {
+    static public String body(CoreCredentials credential, CustomerData bankCustomer){
 
-        String customerCreateBody="<soapenv:Envelope\n" +
+        return "<soapenv:Envelope\n" +
                 "        xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
                 "        xmlns:cus=\"http://temenos.com/CUSTONBRD\"\n" +
                 "        xmlns:cus1=\"http://temenos.com/CUSTOMERETMBPOC\">\n" +
@@ -96,7 +97,6 @@ public class CustomerBody {
                 "    </soapenv:Body>\n" +
                 "</soapenv:Envelope>\n";
 
-        return customerCreateBody;
     }
 
 }

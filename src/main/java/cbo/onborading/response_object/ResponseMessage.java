@@ -3,6 +3,17 @@ package cbo.onborading.response_object;
 public class ResponseMessage {
     private String status;
     private String message;
+    private String transactionID;
+
+
+    public String getTransactionID() {
+        return transactionID;
+    }
+
+    public ResponseMessage setTransactionID(String transactionID) {
+        this.transactionID = transactionID;
+        return this;
+    }
 
     public String getStatus() {
         return status;

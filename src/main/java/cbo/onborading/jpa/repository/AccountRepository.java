@@ -1,13 +1,13 @@
 package cbo.onborading.jpa.repository;
 
-import cbo.onborading.jpa.entity.BranchEnt;
+
+import cbo.onborading.jpa.entity.CustomerAccount;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
+public interface AccountRepository extends CrudRepository<CustomerAccount,Integer> {
 
-
-public interface AccountRepository extends CrudRepository<BranchEnt,Integer> {
-
+    @Query("SELECT u FROM CustomerAccount u where u.customerID=?1")
+    CustomerAccount getAccountByCustomer(Integer customerID);
 
 }

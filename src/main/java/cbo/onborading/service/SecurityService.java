@@ -47,12 +47,10 @@ public class SecurityService {
         //send Email
         return new ResponseMessage().success("user Account Created and Password Sent via registered email please change defaUlt PASSWORD");
     }
-
-    public CoreCredentials getOficerCore(String cashierCode, String cashierPassword) {
+    public CoreCredentials getOfficerCore(String cashierCode, String cashierPassword) {
 
         return null;
     }
-
     public ResponseMessage changePassword(ChangePassword chp) {
        if(!chp.getNewPassWord().equals(chp.getConfirmPassword())){
            return new ResponseMessage().error("Password is not Confirmed");
@@ -81,15 +79,5 @@ public class SecurityService {
 
 
     }
-    // public String generatePassword() throws NoSuchAlgorithmException {
-//        String password= Collections.randomString(7);
-//        MessageDigest m = MessageDigest.getInstance("MD5");
-//        m.update(password.getBytes());
-//        byte[] bytes = m.digest();
-//        return password;
-     // return   internalUserRepository.officerLogin(userName,password);
-   // }
-//    public InternalUser sendEmail(String userName, String password) {
-//      return   internalUserRepository.officerLogin(userName,password);
-//    }
+
 }
