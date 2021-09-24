@@ -32,8 +32,8 @@ public class OnBoardingOperationController {
     }
     //account Creation
     @PostMapping("/v1/create/account")
-    public ResponseMessage createAccount(@RequestBody Account account){
-        return accountService.createAccount(account);
+    public ResponseMessage createAccount(@RequestBody AccountWraper accountWraper){
+        return accountService.createAccount(accountWraper);
     }
     //Account Authorization
     @PostMapping("/v1/authorize/account")
@@ -55,6 +55,8 @@ public class OnBoardingOperationController {
     public ResponseMessage authorizeImage(@RequestBody Authorization authorization){
         return imageService.imageUploadAuth(authorization);
     }
+
+
 
     //actual file upload
     @PostMapping("/v1/upload")

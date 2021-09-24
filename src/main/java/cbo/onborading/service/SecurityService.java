@@ -62,6 +62,7 @@ public class SecurityService {
         String encPassword=Collections.encP(chp.getNewPassWord());
         user.setPassword(encPassword);
         user.setDefaultPasswordChanged(true);
+        user.setEmailVerified(true);
         internalUserRepository.save(user);
 
         String subject="Default Password changed--please do not reply to this email";

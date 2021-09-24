@@ -65,7 +65,12 @@ public class SystemManagementController {
         if(user==null){
             return new LoginCredentials().setLoginStatus("Login not Successful");
         }
+
+        if(user.isDefaultPasswordChanged())
         return loginCredentials.setLoginStatus("Success");
+
+        return new LoginCredentials().setLoginStatus("Default Password Password not changed");
+
     }
 
     @PostMapping("/v1/pw/change")
@@ -76,15 +81,13 @@ public class SystemManagementController {
     @PostMapping("/v1/core/setup")
     public ResponseMessage createCoreCredentials(@RequestBody CoreCredentials coreCredentials){
 
-       // System.out.println(coreCredentials.getUsername());
-        //logins
         InternalUser user= securityService.login(coreCredentials.getUsername(),coreCredentials.getPassword());
-        //
         if(user!=null){
             user.setCoreUserName(coreCredentials.getCoreUserName());
-            //encriypt the user id and core user name and register in cccc
             String userId= Collections.encP(user.getId()+"");
             String cureUserName=Collections.encP(coreCredentials.getCoreUserName());
+
+
             internalUserService.updateUser(user);
 
             //create cccc intry
@@ -94,6 +97,7 @@ public class SystemManagementController {
             uccc.setCompanyCode(coreCredentials.getCompanyCode());
             uccc.setCoreUserName(cureUserName);
             uccc.setId(userId);
+
 
             cccRepository.save(uccc);
             return new ResponseMessage().success("Core Account Created Successfully");

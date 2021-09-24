@@ -1,11 +1,11 @@
 package cbo.onborading.model.operation;
 
-import cbo.onborading.jpa.entity.CustomerAccount;
+import cbo.onborading.jpa.entity.Account;
 
-public class Account {
+public class AccountWraper {
     private String userName;
     private String password;
-    private CustomerAccount customerAccount;
+    private Account account;
 
     public String getUserName() {
         return userName;
@@ -23,12 +23,11 @@ public class Account {
         this.password = password;
     }
 
-    public CustomerAccount getCustomerAccount() {
-        return customerAccount;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setCustomerAccount(CustomerAccount customerAccount) {
-        this.customerAccount = customerAccount;
+    public void setAccount(Account account) {
+        this.account = account;
     }
-
 }

@@ -1,12 +1,10 @@
 package cbo.onborading.remote.soap.body.creation;
 
-import cbo.onborading.jpa.entity.CustomerAccount;
+import cbo.onborading.jpa.entity.Account;
 import cbo.onborading.model.internal.CoreCredentials;
-import cbo.onborading.model.operation.Account;
-import cbo.onborading.remote.model.BankAccount;
 
 public class AccountCreation {
-    public static String body(CustomerAccount accountCreate, CoreCredentials requestCredentials){
+    public static String body(Account accountCreate, CoreCredentials requestCredentials){
         return "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\n" +
                 "xmlns:cus=\"http://temenos.com/CUSTONBRD\" xmlns:acc=\"http://temenos.com/ACCOUNTOPENPOC\">\n" +
                 "   <soapenv:Header/>\n" +

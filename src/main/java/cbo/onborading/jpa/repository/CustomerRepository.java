@@ -14,4 +14,7 @@ public interface CustomerRepository extends CrudRepository<CustomerData,Integer>
 
     @Query("select u from CustomerData u where u.mobilePhoneNumber=?1")
     CustomerData getCustomerByCustomerID(String transactionId);
+
+    @Query("select u from CustomerData u where u.transactionID=?1")
+    CustomerData getCustomerByCustomerNumber(String transactionId);
 }

@@ -1,15 +1,17 @@
 package cbo.onborading.model.operation;
 
 public class ImageCapture {
+
     public String userName;
     public String passWord;
+
     private String messageId;
     public String imageType;
     public String accountNumber;
     public String shortDescription;
     public String description;
-    public String imageName;
-    public String transactionId;
+
+
 
 
     public String getUserName() {
@@ -65,22 +67,10 @@ public class ImageCapture {
     }
 
     public void setDescription(String description) {
+
         this.description = description;
     }
 
-    public String getImageName() {
-        return imageName;
+
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-}

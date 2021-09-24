@@ -39,17 +39,25 @@ public class CustomerService {
     public ResponseMessage createCustomer(Customer customer){
         //authentication
         InternalUser internalUser=securityService.login(customer.getUserName(),customer.getPassWord());
+
         if(internalUser==null)
             return new ResponseMessage().error("invalid Credentials Supplied");
-       CoreCredentials coreUser=commonFunc.coreCredential(internalUser);
 
-       if(coreUser==null) return new ResponseMessage().error("Core credentials Not set");
+        if(!internalUser.isEmailVerified())
+            return new ResponseMessage().error("Email Not Verified");
+
+//        if(!internalUser.isMobileVerified())
+//            return new ResponseMessage().error("Mobile Not Verified");
+
+        CoreCredentials coreUser=commonFunc.coreCredential(internalUser);
+
+       if(coreUser==null)
+           return new ResponseMessage().error("Core credentials Not set");
 
         CustomerData cd=customerRepository.getCustomerBymobile(customer.getCustomerData().getMobilePhoneNumber());
 
         if(cd!=null && cd.getStatus().equals("Success"))
             return new ResponseMessage().error("Customer is Already Created on core system").setTransactionID(cd.getTransactionID());
-
         customer=generateValue(customer);
 
         String soapBody= CustomerCreation.body(coreUser,customer.getCustomerData());
@@ -65,7 +73,7 @@ catch (Exception ex){
     return new ResponseMessage().error(ex.getMessage());
 }
     if(customerData.getStatus().equals("Success"))
-            return new ResponseMessage().success(customerData.getMessages());
+            return new ResponseMessage().success(customerData.getMessages()).setTransactionID(customerData.getTransactionID());
 
             return new ResponseMessage().error(customerData.getMessages());
     }
@@ -77,15 +85,17 @@ catch (Exception ex){
         CoreCredentials coreUser=commonFunc.coreCredential(internalUser);
         if(coreUser==null)
             return new ResponseMessage().error("Core credentials Not set");
-        CustomerData cd=customerRepository.getCustomerByCustomerID(authorization.getTransactionId());
+        CustomerData cd=customerRepository.getCustomerByCustomerNumber(authorization.getTransactionId());
         if(cd==null)
             return new ResponseMessage().error("invalid Customer ID Supplied").setTransactionID(authorization.getTransactionId());
+
+
         if(cd.isAuthorized())
             return new ResponseMessage().error("Customer Already authorized").setTransactionID(authorization.getTransactionId());
 
-        if(cd.getCreatedBuy()!=internalUser.getMobile() && cd.getCreatedBuy()!=internalUser.getEmail())
-            return new ResponseMessage().error("You are not authorized to authorized this customer creation");
-        //proceed to authorizations
+//        if(cd.getCreatedBuy()!=internalUser.getMobile() && cd.getCreatedBuy()!=internalUser.getEmail())
+//            return new ResponseMessage().error("You are not authorized to authorize this customer creation");
+//        //proceed to authorizations
 
 
         String customerAuth= CustomerAuthorization.body(authorization.getTransactionId(),coreUser);

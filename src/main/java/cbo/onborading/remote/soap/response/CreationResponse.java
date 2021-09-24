@@ -1,6 +1,6 @@
 package cbo.onborading.remote.soap.response;
 
-import cbo.onborading.jpa.entity.CustomerAccount;
+import cbo.onborading.jpa.entity.Account;
 import cbo.onborading.jpa.entity.CustomerData;
 import cbo.onborading.utility.XMLNodeElement;
 import org.w3c.dom.Node;
@@ -38,45 +38,68 @@ public class CreationResponse {
             return  customerData;
         }
     }
-    public CustomerAccount accountCreation(SOAPMessage soapMessage,CustomerAccount customerAccount){
+    public Account accountCreation(SOAPMessage soapMessage, Account account){
         try{
             Node node = new XMLNodeElement().getSoapBody(soapMessage);
             String status = node.getChildNodes().item(0).getChildNodes().item(2).getChildNodes().item(0).getNodeValue();
-
+            account.setAccountCreated(true);
+            if(status.equals("Success")){
+                String AccountNUmber = node.getChildNodes().item(0).getChildNodes().item(0).getChildNodes().item(0).getNodeValue();
+                account.setAccountNumber(AccountNUmber);
+            }
         }catch (Exception e){
 
         }
-        return customerAccount;
+        return account;
     }
-    public CustomerAccount imageCapture(SOAPMessage soapMessage,CustomerAccount customerAccount){
-
-        try{
-
-            Node node = new XMLNodeElement().getSoapBody(soapMessage);
-            String status = node.getChildNodes().item(0).getChildNodes().item(2).getChildNodes().item(0).getNodeValue();
-
-        }catch (Exception e){
-
-
-        }
-
-        return customerAccount;
-    }
-    public CustomerAccount imageUpload(SOAPMessage soapMessage,CustomerAccount customerAccount){
-
+    public Account imageCapture(SOAPMessage soapMessage, Account account, String imageType){
         try{
 
             Node node = new XMLNodeElement().getSoapBody(soapMessage);
             String status = node.getChildNodes().item(0).getChildNodes().item(2).getChildNodes().item(0).getNodeValue();
+            //customerAccount.set;
+            if(status.equals("Success")){
+                String imageId = node.getChildNodes().item(0).getChildNodes().item(0).getChildNodes().item(0).getNodeValue();
+
+                if(imageType.equals("SIGNATURES")){
+                    account.setSignatureImageId(imageId);
+                }
+                else
+                    account.setPersonImageId(imageId);
+            }
 
         }catch (Exception e){
 
 
         }
-        return customerAccount;
+
+        return account;
     }
+    public Account imageUpload(SOAPMessage soapMessage, Account account, String imageType){
+
+        try{
+
+            Node node = new XMLNodeElement().getSoapBody(soapMessage);
+            String status = node.getChildNodes().item(0).getChildNodes().item(2).getChildNodes().item(0).getNodeValue();
+
+            if(status.equals("Success")){
+                String uploadedTransactionID = node.getChildNodes().item(0).getChildNodes().item(0).getChildNodes().item(0).getNodeValue();
+                if(imageType.equals("SIGNATURES")){
+
+                    account.setSignatureImageId(uploadedTransactionID);
+                    account.setSignatureUploaded(true);
+                }
+                else
+                    account.setPhotoUploaded(true);
+                    account.setPersonImageId(uploadedTransactionID);
+
+            }
+
+        }catch (Exception e){
 
 
-
+        }
+        return account;
+    }
 
 }

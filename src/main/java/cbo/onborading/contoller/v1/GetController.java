@@ -2,7 +2,9 @@ package cbo.onborading.contoller.v1;
 
 
 import cbo.onborading.jpa.entity.BranchEnt;
+import cbo.onborading.jpa.entity.Account;
 import cbo.onborading.jpa.entity.CustomerData;
+import cbo.onborading.jpa.repository.AccountRepository;
 import cbo.onborading.jpa.repository.CustomerRepository;
 import cbo.onborading.jpa.repository.InternalUserRepository;
 import cbo.onborading.model.internal.ChangePassword;
@@ -30,6 +32,10 @@ public class GetController {
     @Autowired
     InternalUserRepository internalUserRepository;
 
+    @Autowired
+    AccountRepository accountRepository;
+
+
     @GetMapping("/branch")
     public BranchEnt getBranch(){
        return new BranchEnt();
@@ -41,8 +47,8 @@ public class GetController {
     }
 
     @GetMapping("/account")
-    public Account getCustomerCustomer(){
-       return new Account();
+    public AccountWraper getCustomerCustomer(){
+       return new AccountWraper();
     }
 
     @GetMapping("/branches")
@@ -86,6 +92,10 @@ public class GetController {
     @GetMapping("/customer_info")
     public List<CustomerData> getCustomerData(){
         return customerRepository.allCustomer();
+    }
+@GetMapping("/account_info")
+    public List<Account> getAllCountNumber(){
+        return accountRepository.getAllAccount();
     }
 
 

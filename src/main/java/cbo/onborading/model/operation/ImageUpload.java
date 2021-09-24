@@ -3,10 +3,20 @@ package cbo.onborading.model.operation;
 public class ImageUpload {
     public String userName;
     public String passWord;
+    private String accountNumber;
     private String messageId;
     private  String imageId;
-    private String transactionId;
     private  String imageName;
+    private String imageType;
+
+
+    public String getImageType() {
+        return imageType;
+    }
+
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
+    }
 
     public String getUserName() {
         return userName;
@@ -40,13 +50,6 @@ public class ImageUpload {
         this.imageId = imageId;
     }
 
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
 
     public String getImageName() {
         return imageName;
@@ -54,5 +57,14 @@ public class ImageUpload {
 
     public void setImageName(String imageName) {
         this.imageName = imageName;
+    }
+
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

@@ -4,10 +4,7 @@ public class Authorization {
     private String userName;
     private String passWord;
     private String transactionId;
-    private String cashierCode;
-    private String cashierPassword;
-
-
+    private String imageType;
 
 
     public String getUserName() {
@@ -34,19 +31,11 @@ public class Authorization {
         this.transactionId = transactionId;
     }
 
-    public String getCashierCode() {
-        return cashierCode;
+    public String getImageType() {
+        return imageType;
     }
 
-    public void setCashierCode(String cashierCode) {
-        this.cashierCode = cashierCode;
-    }
-
-    public String getCashierPassword() {
-        return cashierPassword;
-    }
-
-    public void setCashierPassword(String cashierPassword) {
-        this.cashierPassword = cashierPassword;
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 }

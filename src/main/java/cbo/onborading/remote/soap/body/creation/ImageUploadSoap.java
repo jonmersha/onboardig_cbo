@@ -19,10 +19,10 @@ public class ImageUploadSoap {
                 "\t\t\t</WebRequestCommon>\n" +
                 "\t\t\t\n" +
                 "\t\t\t<OfsFunction>\n" +
-                "\t\t\t\t<messageId>"+imageUpload.getImageId()+"</messageId>\n" +
+                "\t\t\t\t<messageId>"+imageUpload.getMessageId()+"</messageId>\n" +
                 "\t\t\t</OfsFunction>\n" +
                 "\t\t\t\n" +
-                "\t\t\t<IMDOCUMENTUPLOADCAPTUREType id=\""+imageUpload.getTransactionId()+"\">\n" +
+                "\t\t\t<IMDOCUMENTUPLOADCAPTUREType id=\""+imageUpload.getImageId()+"\">\n" +
                 "\t\t\t\t<imd:ImageId>"+imageUpload.getImageId()+"</imd:ImageId>\n" +
                 "\t\t\t\t<imd:UploadImage>"+imageUpload.getImageName()+"</imd:UploadImage>\n" +
                 "\t\t\t</IMDOCUMENTUPLOADCAPTUREType>\n" +

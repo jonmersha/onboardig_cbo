@@ -1,8 +1,6 @@
 package cbo.onborading.remote.soap.body.authorization;
 
-import cbo.onborading.jpa.entity.CustomerAccount;
 import cbo.onborading.model.internal.CoreCredentials;
-import cbo.onborading.model.operation.Authorization;
 
 public class AccountAuthorization {
     public static String body(String accountNumber, CoreCredentials requestCredentials) {

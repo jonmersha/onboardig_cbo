@@ -8,17 +8,23 @@ import javax.persistence.*;
 public class UCCC {
     @Id
     private String id;
+
     private String mobileOTP;
     private String emailOTP;
+
     private boolean mobileOTPValid;
     private boolean emailOTPValid;
+
     private String mobileOTPGenTime;
     private String emailOTPGenTime;
+
     private int mobileOTPTryCount;
     private int emailOTPTryCount;
+
     private String companyCode;
     private String corePassword;
     private String coreUserName;
+
 
 
     public String getCompanyCode() {
