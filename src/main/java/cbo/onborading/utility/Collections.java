@@ -9,13 +9,10 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Collections {
 
+public class Collections {
     //Path
     public static final Object ON_BOARDING_URL ="http://10.1.245.189:9081/CUSONBRD/services" ;
-
-
-
 
     public static String randomString(int n){
         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz!@#$%&*";
@@ -55,7 +52,6 @@ public class Collections {
         {
             e.printStackTrace();
         }
-
 return encryptedpassword;
     }
     public static SOAPMessage getSoapMessageFromString(String xml) throws SOAPException, IOException {

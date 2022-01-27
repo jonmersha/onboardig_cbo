@@ -11,6 +11,8 @@ public class FusedOperationResponseMessage {
     private String imageUploadStatus;
     private String imageAuthorizeStatus;
 
+
+
     public String getCustomerCreateStatus() {
         return customerCreateStatus;
     }
